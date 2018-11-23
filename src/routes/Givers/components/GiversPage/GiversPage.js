@@ -5,8 +5,6 @@ import { TextField } from 'redux-form-material-ui'
 import { required } from 'utils/form'
 import Button from '@material-ui/core/Button'
 
-
-
 export const GiversPage = ({ givers, classes, handleSubmit }) => (
   <div className={classes.container}>
     <span>GiversPage Component</span>
@@ -17,18 +15,19 @@ export const GiversPage = ({ givers, classes, handleSubmit }) => (
         name="name"
         component={TextField}
         label="GIVER NAME"
-        validate={[required]}  
+        validate={[required]}
       />
-        <Button type="submit" color="primary">
-          Create
-        </Button>
+      <Button type="submit" color="primary">
+        Create
+      </Button>
     </form>
   </div>
 )
 
 GiversPage.propTypes = {
   classes: PropTypes.object.isRequired, // from enhancer (withStyles)
-  givers: PropTypes.object // from enhancer (firestoreConnect + connect)
+  givers: PropTypes.object, // from enhancer (firestoreConnect + connect)
+  handleSubmit: PropTypes.func // call this to submit
 }
 
 export default GiversPage
